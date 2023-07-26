@@ -1,5 +1,5 @@
 {% set name = "napari-amdtrk" %}
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-amdtrk-{{ version }}.tar.gz
-  sha256: a11742880f1fcc8233e1e37cae4ba83f52c656f80ec186c680cccb600014b425
+  sha256: 678f7b17d103c4d3a7a862301b581b3b1c760da33ad73a2ed7c75ee5191cde07
 
 build:
   noarch: python
@@ -23,6 +23,7 @@ requirements:
     - numpy <1.24
     - pandas
     - python >=3.8
+    - pyyaml
     - qtpy
     - trackpy
     - scikit-image
