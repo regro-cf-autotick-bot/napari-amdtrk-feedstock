@@ -6,23 +6,23 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/napari-amdtrk-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/napari-amdtrk-{{ version }}.tar.gz
   sha256: 678f7b17d103c4d3a7a862301b581b3b1c760da33ad73a2ed7c75ee5191cde07
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
   run:
     - magicgui
     - numpy <1.24
     - pandas
-    - python >=3.8
+    - python >={{ python_min }}
     - pyyaml
     - qtpy
     - trackpy
@@ -37,6 +37,7 @@ test:
   requires:
     - pip
     - pyqt
+    - python {{ python_min }}
 
 about:
   home: https://github.com/Jeff-Gui/napari-amdtrk-plugin
